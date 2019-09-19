@@ -1,5 +1,5 @@
 import parseArgv from 'minimist';
-import * as commands from '~/commands';
+import * as commands from './commands';
 
 let commandNames = Object.keys(commands);
 

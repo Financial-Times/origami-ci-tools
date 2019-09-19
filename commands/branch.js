@@ -1,5 +1,5 @@
-import exec from "~/lib/exec"
-import env from "~/lib/env"
+import exec from '../lib/exec';
+import env from '../lib/env';
 
 export let description = 'run branch commands';
 
