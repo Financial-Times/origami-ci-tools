@@ -1,0 +1,40 @@
+{
+	"name": "origami-ci-tools",
+	"version": "1.0.0",
+	"description": "Commands to help with Continuous Integration of Origami components",
+	"main": "index.js",
+	"module": "main.js",
+	"bin": {
+		"origami-ci": "./index.js"
+	},
+	"scripts": {
+		"test": "tap",
+		"install": "rm -f node_modules/~; ln -s .. node_modules/~"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Financial-Times/origami-ci-tools.git"
+	},
+	"keywords": [
+		"origami",
+		"ci",
+		"tools"
+	],
+	"author": "chee <chee@snoot.club>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami-ci-tools/issues"
+	},
+	"homepage": "https://github.com/Financial-Times/origami-ci-tools#readme",
+	"devDependencies": {
+		"@types/node": "^12.7.5",
+		"tap": "^14.6.4"
+	},
+	"dependencies": {
+		"esm": "^3.2.25",
+		"execa": "^2.0.4",
+		"minimist": "^1.2.0",
+		"occ": "^0.14.4",
+		"origami-build-tools": "^8.2.5"
+	}
+}
