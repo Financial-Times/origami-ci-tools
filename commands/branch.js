@@ -1,5 +1,6 @@
 import exec from '../lib/exec';
 import env from '../lib/env';
+import bundleSize from '../lib/bundle-size-pr-comment.js';
 
 export let description = 'run branch commands';
 
@@ -12,4 +13,5 @@ export async function command() {
 	await exec('occ', '--name', env.name, '0.0.0');
 	await exec('obt', 'install', '--ignore-bower');
 	await exec('obt', 'test', '--ignore-bower');
+	await bundleSize();
 }
