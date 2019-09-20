@@ -4,7 +4,7 @@ Continuous Integration tools for Origami components
 
 Origami CI Tools is a wrapper around the tools used to build and test Origami components, to make it easier to keep the steps up to date across components.
 
-It will run the component's tests, and publish the component to npm.
+It will help you run the component's tests, and publish the component to npm.
 
 ## Usage
 
@@ -35,6 +35,9 @@ jobs:
 `origami-ci` expects the following Environment Variables to be set:
 
 | name | description | example |
-| ==== | =========== | ====== |
-| ORIGAMI_CI_NAME | the project namesuch as `o-colors`used when a package.json) |
-| CIRCLE_PROJECT_REPONAME | used for 
+| --- | --- | --- |
+| `ORIGAMI_CI_NAME` | The project name (used when generating a package.json) | `o-colors` |
+| `CIRCLE_PROJECT_REPONAME` | CircleCI-specific alternative to `ORIGAMI_CI_NAME`. Set automatically by CircleCI | `o-colors` |
+| `ORIGAMI_CI_VERSION` | the version of the project being built | `1.0.0` |
+| `CIRCLE_TAG` | CircleCI-specific alternative to `ORIGAMI_CI_VERSION`. Set automatically by CircleCI | `v1.0.0` |
+| `NPM_TOKEN` | The auth token used to publish npm packages | `r0wANL3eJ4keacHee1234o==`|
