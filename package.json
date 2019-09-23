@@ -1,6 +1,6 @@
 {
 	"name": "origami-ci-tools",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Commands to help with Continuous Integration of Origami components",
 	"main": "index.js",
 	"module": "main.js",
