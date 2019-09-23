@@ -10,6 +10,7 @@ export async function command() {
 	await exec('obt', 'verify');
 	await exec('obt', 'test');
 	await exec('git', 'clean', '-fxd');
+	await exec('npm', 'install', '--only=dev');
 	await exec('occ', '--name', env.name, '0.0.0');
 	await exec('obt', 'install', '--ignore-bower');
 	await exec('obt', 'test', '--ignore-bower');
