@@ -1,3 +1,8 @@
+process.on('unhandledRejection', error => {
+	console.error(error);
+	process.exit(1);
+});
+
 import parseArgv from 'minimist';
 import * as commands from './commands';
 
