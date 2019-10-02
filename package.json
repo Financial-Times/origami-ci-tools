@@ -30,7 +30,7 @@
 		"minimist": "^1.2.0",
 		"node-fetch": "^2.6.0"
 	},
-	"peerDependencies": {
+	"_origamiGlobalDependencies": {
 		"@financial-times/origami-bundle-size-cli": "^1.0.0",
 		"occ": "^0.14.4",
 		"origami-build-tools": "^8.2.5"
