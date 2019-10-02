@@ -5,6 +5,7 @@ process.on('unhandledRejection', error => {
 
 import parseArgv from 'minimist';
 import * as commands from './commands';
+import installDependencies from './lib/install-dependencies';
 
 let commandNames = Object.keys(commands);
 
@@ -40,5 +41,7 @@ if (args.h) {
 }
 
 (async function() {
-	await commands[command].command();
+	let commandConfig = commands[command];
+	await installDependencies(commandConfig.dependencies);
+	await commandConfig.command();
 })();
