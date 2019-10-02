@@ -7,7 +7,7 @@ import env from '../lib/env';
 
 export let description = 'run release commands';
 
-export let dependencies = ['occ'];
+export let globalDependencies = ['occ'];
 
 export async function command() {
 	await exec('occ', '--name', env.name, env.version);
