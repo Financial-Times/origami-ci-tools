@@ -8,7 +8,6 @@ export let dependencies = [
 	'origami-build-tools',
 	'occ',
 	'@financial-times/origami-bundle-size-cli',
-	'node-fetch',
 ];
 
 export async function command() {
