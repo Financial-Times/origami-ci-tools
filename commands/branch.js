@@ -4,7 +4,7 @@ import bundleSize from '../lib/bundle-size-pr-comment.js';
 
 export let description = 'run branch commands';
 
-export let dependencies = [
+export let globalDependencies = [
 	'origami-build-tools',
 	'occ',
 	'@financial-times/origami-bundle-size-cli',

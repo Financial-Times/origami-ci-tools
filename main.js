@@ -42,6 +42,6 @@ if (args.h) {
 
 (async function() {
 	let commandConfig = commands[command];
-	await installDependencies(commandConfig.dependencies);
+	await installDependencies(commandConfig.globalDependencies);
 	await commandConfig.command();
 })();
