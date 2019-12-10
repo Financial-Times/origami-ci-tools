@@ -40,9 +40,14 @@ export async function command() {
 
 	await exec('occ', '--name', env.name, '0.0.0');
 
-	const versions = JSON.parse(
-		await exec('npm', 'info', '.', 'versions', '--json')
+	const {stdout: versionsJson} = await exec(
+		'npm',
+		'info',
+		'.',
+		'versions',
+		'--json'
 	);
+	const versions = JSON.parse(versionsJson);
 
 	const stableVersions = versions.filter(version => {
 		const v = coerce(version);
