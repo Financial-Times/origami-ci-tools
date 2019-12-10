@@ -4,6 +4,7 @@ import {resolve as resolvePath} from 'path';
 import {gt, coerce} from 'semver';
 
 import exec from '../lib/exec';
+import {execStdout} from '../lib/exec';
 import env from '../lib/env';
 
 export let description = 'run release commands';
@@ -40,13 +41,14 @@ export async function command() {
 
 	await exec('occ', '--name', env.name, '0.0.0');
 
-	const {stdout: versionsJson} = await exec(
+	const versionsJson = await execStdout(
 		'npm',
 		'info',
 		'.',
 		'versions',
 		'--json'
 	);
+
 	const versions = JSON.parse(versionsJson);
 
 	const stableVersions = versions.filter(version => {
@@ -58,11 +60,11 @@ export async function command() {
 		return gt(newVersion, version);
 	});
 
-	await exec('npm', 'version', env.version);
+	await exec('npm', 'version', env.version, '--no-git-tag-version', '--force');
 
 	if (newVersionIsNotPrerelease && newVersionIsLargestVersion) {
 		await exec('npm', 'publish', '--access', 'public');
 	} else {
-		await exec('npm', 'publish', '--access', 'public', '--tag', env.version);
+		await exec('npm', 'publish', '--access', 'public', '--tag', `tag--${env.version}`);
 	}
 }
