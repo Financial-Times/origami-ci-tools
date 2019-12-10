@@ -37,8 +37,10 @@ export async function command() {
 	*/
 	const newVersion = coerce(env.version);
 	const newVersionIsNotPrerelease = newVersion.prerelease.length === 0;
+	
+	await exec('occ', '--name', env.name, "0.0.0");
 
-	const versions = await exec('npm', 'info', env.name, 'versions', '--json');
+	const versions = await exec('npm', 'info', '.', 'versions', '--json');
 
 	const stableVersions = versions.filter(version => {
 		const v = coerce(version);
@@ -49,7 +51,7 @@ export async function command() {
 		return gt(newVersion, version);
 	});
 
-	await exec('occ', '--name', env.name, env.version);
+	await exec('npm', 'version', env.version);
 
 	if (newVersionIsNotPrerelease && newVersionIsLargestVersion) {
 		await exec('npm', 'publish', '--access', 'public');
