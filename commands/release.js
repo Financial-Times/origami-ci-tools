@@ -37,8 +37,8 @@ export async function command() {
 	*/
 	const newVersion = coerce(env.version);
 	const newVersionIsNotPrerelease = newVersion.prerelease.length === 0;
-	
-	await exec('occ', '--name', env.name, "0.0.0");
+
+	await exec('occ', '--name', env.name, '0.0.0');
 
 	const versions = await exec('npm', 'info', '.', 'versions', '--json');
 
