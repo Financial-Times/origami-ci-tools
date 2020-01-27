@@ -16,7 +16,7 @@ export async function command() {
 	if (env.npmToken == undefined) {
 		throw new Error(
 			'To use the release command you need to set the environment variable "NPM_TOKEN" with a valid npm token. \
-			You can contact Origami for help with this via origami.support@ft.com or the Slack channel #ft-origami.'
+			You can contact Origami for help with this via origami.support@ft.com or the Slack channel #origami-support.'
 		);
 	}
 	await fs.writeFile(
