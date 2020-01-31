@@ -65,6 +65,13 @@ export async function command() {
 	if (newVersionIsNotPrerelease && newVersionIsLargestVersion) {
 		await exec('npm', 'publish', '--access', 'public');
 	} else {
-		await exec('npm', 'publish', '--access', 'public', '--tag', `tag--${env.version}`);
+		await exec(
+			'npm',
+			'publish',
+			'--access',
+			'public',
+			'--tag',
+			`tag--${env.version}`
+		);
 	}
 }
