@@ -1,10 +1,10 @@
-import { promises as fs } from 'fs';
-import { homedir } from 'os';
-import { resolve as resolvePath } from 'path';
-import { gt, coerce } from 'semver';
+import {promises as fs} from 'fs';
+import {homedir} from 'os';
+import {resolve as resolvePath} from 'path';
+import {gt, coerce} from 'semver';
 
 import exec from '../lib/exec';
-import { execStdout } from '../lib/exec';
+import {execStdout} from '../lib/exec';
 import env from '../lib/env';
 
 export let description = 'run release commands';
