@@ -42,5 +42,5 @@ jobs:
 | `CIRCLE_TAG` | CircleCI-specific alternative to `ORIGAMI_CI_VERSION`. Set automatically by CircleCI | `v1.0.0` |
 | `ORIGAMI_PULL_REQUEST` | the url of a pull request for the build, if any | `https://github.com/Financial-Times/o-test-component/pull/1` |
 | `CIRCLE_PULL_REQUEST` | CircleCI-specific alternative to `ORIGAMI_PULL_REQUEST`. Set automatically by CircleCI | `https://github.com/Financial-Times/o-test-component/pull/1` |
-| `NPM_TOKEN` | The auth token used to publish npm packages | ` 09448d16328f2c7...`|
+| `NPM_TOKEN` OR `NPM_AUTH_TOKEN` | The auth token used to publish npm packages | ` 09448d16328f2c7...`|
 | `GITHUB_TOKEN` | The auth token used to comment on Github pull requests | `r0wANL3eJ4keacHee1234o==`|

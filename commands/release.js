@@ -3,9 +3,8 @@ import { homedir } from 'os';
 import { resolve as resolvePath } from 'path';
 import { gt, coerce } from 'semver';
 
-import execa from 'execa';
 import exec from '../lib/exec';
-import { getExecEnv } from '../lib/exec';
+import { execStdout } from '../lib/exec';
 import env from '../lib/env';
 
 export let description = 'run release commands';
@@ -17,7 +16,7 @@ export async function command() {
 	if (env.npmToken == undefined) {
 		throw new Error(
 			'To use the release command you need to set the environment variable "NPM_TOKEN" with a valid npm token. \
-			You can contact Origami for help with this via origami.support@ft.com or the Slack channel #ft-origami.'
+			You can contact Origami for help with this via origami.support@ft.com or the Slack channel #origami-support.'
 		);
 	}
 	await fs.writeFile(
@@ -43,11 +42,16 @@ export async function command() {
 	await exec('occ', '--name', env.name, '0.0.0');
 
 	let versions = [];
-
 	try {
-		versions = await execa('npm', ['info', '.', 'versions', '--json'], {
-			env: getExecEnv()
-		});
+		const versionsJson = await execStdout(
+			'npm',
+			'info',
+			'.',
+			'versions',
+			'--json'
+		);
+
+		const versions = JSON.parse(versionsJson);
 	} catch (error) {
 		// do not error if the component does not yet exist in npm
 		if (!(typeof error.stderr === 'string' && error.stderr.includes('E404'))) {
@@ -64,11 +68,18 @@ export async function command() {
 		return gt(newVersion, version);
 	});
 
-	await exec('npm', 'version', env.version);
+	await exec('npm', 'version', env.version, '--no-git-tag-version', '--force');
 
 	if (newVersionIsNotPrerelease && newVersionIsLargestVersion) {
 		await exec('npm', 'publish', '--access', 'public');
 	} else {
-		await exec('npm', 'publish', '--access', 'public', '--tag', env.version);
+		await exec(
+			'npm',
+			'publish',
+			'--access',
+			'public',
+			'--tag',
+			`tag--${env.version}`
+		);
 	}
 }
