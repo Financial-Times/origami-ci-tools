@@ -51,7 +51,7 @@ export async function command() {
 			'--json'
 		);
 
-		const versions = JSON.parse(versionsJson);
+		versions = JSON.parse(versionsJson);
 	} catch (error) {
 		// do not error if the component does not yet exist in npm
 		if (!(typeof error.stderr === 'string' && error.stderr.includes('E404'))) {
