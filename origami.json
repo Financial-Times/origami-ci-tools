@@ -1,0 +1,16 @@
+{
+    "description": "Continuous Integration tools for Origami components",
+    "origamiType": null,
+    "origamiVersion": 1,
+    "keywords": [
+        "ci",
+	"branch",
+	"release"
+    ],
+    "support": "https://github.com/Financial-Times/origami-ci-tools/issues",
+    "supportStatus": "active",
+    "supportContact": {
+        "email": "origami.support@ft.com",
+        "slack": "financialtimes/origami-support"
+    }
+}
