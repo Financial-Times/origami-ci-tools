@@ -34,7 +34,7 @@
 		"execa": "^2.0.4",
 		"minimist": "^1.2.0",
 		"node-fetch": "^2.6.0",
-		"semver": "^6.3.0"
+		"semver": "^7.1.3"
 	},
 	"_origamiGlobalDependencies": {
 		"@financial-times/origami-bundle-size-cli": "^1.0.0",
