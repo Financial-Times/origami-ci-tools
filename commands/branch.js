@@ -44,8 +44,11 @@ export async function command() {
 	process.chdir(buildDir);
 	await exec('obt', 'install', '--ignore-bower');
 	if (existsSync('../test')) {
-		await copyRecursively('../test', './test');
+		await copyRecursively('../test', '.');
 	}
+	// this is required for now because obt uses bower.json#name in karma tests
+	// TODO remove when this requirement no longer exists
+	await fs.writeFile('bower.json', `{"name": "${env.name}"}`);
 	await exec('obt', 'test', '--ignore-bower');
 	process.chdir('..');
 	await bundleSize();
