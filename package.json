@@ -27,7 +27,7 @@
 	},
 	"homepage": "https://github.com/Financial-Times/origami-ci-tools#readme",
 	"devDependencies": {
-		"prettier": "^1.19.1"
+		"prettier": "^2.0.1"
 	},
 	"dependencies": {
 		"esm": "^3.2.25",
