@@ -19,10 +19,7 @@ export let globalDependencies = [
 	'@financial-times/origami-bundle-size-cli',
 ];
 
-let getShortId = () =>
-	Math.random()
-		.toString(36)
-		.slice(2);
+let getShortId = () => Math.random().toString(36).slice(2);
 
 export async function command() {
 	let temporaryVersion = `0.0.0`;
