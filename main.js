@@ -40,7 +40,7 @@ if (args.h) {
 	process.exit(0);
 }
 
-(async function() {
+(async function () {
 	let commandConfig = commands[command];
 	await installDependencies(commandConfig.globalDependencies);
 	await commandConfig.command();
