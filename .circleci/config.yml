@@ -18,7 +18,10 @@ jobs:
 workflows:
   test:
     jobs:
-      - test
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
       - publish_to_npm:
           requires:
             - test
