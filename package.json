@@ -41,6 +41,6 @@
 	"_origamiGlobalDependencies": {
 		"@financial-times/origami-bundle-size-cli": "^1.0.0",
 		"occ": "^0.15.0",
-		"origami-build-tools": "^9.0.4"
+		"origami-build-tools": "^9.0.5"
 	}
 }
