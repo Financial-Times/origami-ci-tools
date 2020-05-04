@@ -44,3 +44,10 @@ jobs:
 | `CIRCLE_PULL_REQUEST` | CircleCI-specific alternative to `ORIGAMI_PULL_REQUEST`. Set automatically by CircleCI | `https://github.com/Financial-Times/o-test-component/pull/1` |
 | `NPM_TOKEN` OR `NPM_AUTH_TOKEN` | The auth token used to publish npm packages | ` 09448d16328f2c7...`|
 | `GITHUB_TOKEN` | The auth token used to comment on Github pull requests | `r0wANL3eJ4keacHee1234o==`|
+
+## Migration Guides
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.3 | N/A |
