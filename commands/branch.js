@@ -21,22 +21,13 @@ export let globalDependencies = [
 
 let getShortId = () => Math.random().toString(36).slice(2);
 
-let getNpmPackageName = async () => {
-	if (existsSync('./package.json')) {
-		const packageInfo = JSON.parse(
-			await fs.readFile('./package.json', 'utf-8')
-		);
-		if (packageInfo.name) {
-			return packageInfo.name;
-		}
-	}
-	return env.name;
-};
-
 export async function command() {
 	let temporaryVersion = `0.0.0`;
-	let packageName = await getNpmPackageName();
-	let tarballFileName = `financial-times-${packageName}-${temporaryVersion}.tgz`;
+	let tarballFileName = `financial-times-${env.name}-${temporaryVersion}.tgz`;
+	// ftdomdelegate is special. It is not published under any org.
+	if (env.name === 'ftdomdelegate') {
+		tarballFileName = `${env.name}-${temporaryVersion}.tgz`;
+	}
 	let buildDir = 'occ-build-' + getShortId();
 	await exec('obt', 'install');
 	await exec('obt', 'demo', '--demo-filter', 'pa11y', '--suppress-errors');
