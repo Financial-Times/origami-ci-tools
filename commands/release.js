@@ -41,15 +41,23 @@ export async function command() {
 
 	await exec('occ', '--name', env.name, '0.0.0');
 
-	const versionsJson = await execStdout(
-		'npm',
-		'info',
-		'.',
-		'versions',
-		'--json'
-	);
+	let versions = [];
+	try {
+		const versionsJson = await execStdout(
+			'npm',
+			'info',
+			'.',
+			'versions',
+			'--json'
+		);
 
-	const versions = JSON.parse(versionsJson);
+		versions = JSON.parse(versionsJson);
+	} catch (error) {
+		// do not error if the component does not yet exist in npm
+		if (!(typeof error.stderr === 'string' && error.stderr.includes('E404'))) {
+			throw error;
+		}
+	}
 
 	const stableVersions = versions.filter(version => {
 		const v = coerce(version);
