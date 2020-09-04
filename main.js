@@ -4,8 +4,8 @@ process.on('unhandledRejection', error => {
 });
 
 import parseArgv from 'minimist';
-import * as commands from './commands';
-import installDependencies from './lib/install-dependencies';
+import * as commands from './commands.js';
+import installDependencies from './lib/install-dependencies.js';
 
 let commandNames = Object.keys(commands);
 

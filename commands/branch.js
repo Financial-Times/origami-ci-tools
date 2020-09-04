@@ -1,6 +1,6 @@
-import exec from '../lib/exec';
-import env from '../lib/env';
-import bundleSize from '../lib/bundle-size-pr-comment.js';
+import exec from '../lib/exec.js';
+import env from '../lib/env.js';
+import bundleSize from '../lib/bundle-size-pr-comment.js.js';
 import {promises as fs, existsSync} from 'fs';
 import tar from 'tar';
 import {promisify} from 'util';
