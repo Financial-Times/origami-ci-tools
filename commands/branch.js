@@ -30,7 +30,6 @@ export async function command() {
 	}
 	let buildDir = 'occ-build-' + getShortId();
 	await exec('obt', 'install');
-	await exec('obt', 'demo', '--demo-filter', 'pa11y', '--suppress-errors');
 	await exec('obt', 'verify');
 	await exec('obt', 'test');
 	await exec('git', 'clean', '-fxd');
