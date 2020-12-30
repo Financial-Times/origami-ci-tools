@@ -9,8 +9,6 @@ import env from '../lib/env';
 
 export let description = 'run release commands';
 
-export let globalDependencies = ['occ'];
-
 export async function command() {
 	let npmrcPath = resolvePath(homedir(), '.npmrc');
 	if (env.npmToken == undefined) {
@@ -38,8 +36,6 @@ export async function command() {
 	*/
 	const newVersion = coerce(env.version);
 	const newVersionIsNotPrerelease = newVersion.prerelease.length === 0;
-
-	await exec('occ', '--name', env.name, '0.0.0');
 
 	let versions = [];
 	try {
