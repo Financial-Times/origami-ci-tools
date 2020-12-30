@@ -17,17 +17,17 @@ $ npm install -D origami-ci-tools
 ```yaml
 jobs:
   test:
-    docker:
-      - image: circleci/node:10-browsers
-    steps:
-      - checkout
-      - npx origami-ci branch
+	docker:
+	  - image: circleci/node:10-browsers
+	steps:
+	  - checkout
+	  - npx origami-ci branch
   publish_to_npm:
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - npx origami-ci release
+	docker:
+	  - image: circleci/node:10
+	steps:
+	  - checkout
+	  - npx origami-ci release
 ```
 
 ## Environment Variables
@@ -47,7 +47,8 @@ jobs:
 
 ## Migration Guides
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-⚠ maintained | 1 | 1.3 | N/A |
+| State        | Major Version | Last Minor Release | Migration guide                                       |
+| :---:        | :---:         | :---:              | :---:                                                 |
+| ✨ active    | 3             | N/A                | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ⚠ maintained | 2             | N/A                | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ⚠ maintained | 1             | 1.3                | N/A                                                   |
