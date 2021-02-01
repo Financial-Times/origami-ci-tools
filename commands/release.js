@@ -9,6 +9,8 @@ import env from '../lib/env';
 
 export let description = 'run release commands';
 
+export let globalDependencies = [];
+
 export async function command() {
 	let npmrcPath = resolvePath(homedir(), '.npmrc');
 	if (env.npmToken == undefined) {
