@@ -37,7 +37,7 @@ export async function command() {
 		 version to ensure that it does not get tagged with `latest`.
 	*/
 	const prereleaseComponents = prerelease(env.version);
-	const newVersionIsNotPrerelease = prereleaseComponents.length === 0;
+	const newVersionIsNotPrerelease = prereleaseComponents === null;
 
 	await exec('occ', '--name', env.name, '0.0.0');
 
@@ -60,8 +60,7 @@ export async function command() {
 	}
 
 	const stableVersions = versions.filter(version => {
-		const prereleaseComponents = prerelease(version);
-		return prereleaseComponents.length === 0;
+		return prerelease(version) === null;
 	});
 
 	const newVersionIsLargestVersion = stableVersions.every(version => {
