@@ -1,7 +1,7 @@
 import {promises as fs} from 'fs';
 import {homedir} from 'os';
 import {resolve as resolvePath} from 'path';
-import { gt, prerelease } from 'semver';
+import {gt, prerelease} from 'semver';
 
 import exec from '../lib/exec';
 import {execStdout} from '../lib/exec';
