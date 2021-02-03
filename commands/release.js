@@ -1,7 +1,7 @@
 import {promises as fs} from 'fs';
 import {homedir} from 'os';
 import {resolve as resolvePath} from 'path';
-import {gt, coerce} from 'semver';
+import {gt, prerelease} from 'semver';
 
 import exec from '../lib/exec';
 import {execStdout} from '../lib/exec';
@@ -36,8 +36,8 @@ export async function command() {
 		 being published is either a prerelease or not the largest version then we tag the release with the
 		 version to ensure that it does not get tagged with `latest`.
 	*/
-	const newVersion = coerce(env.version);
-	const newVersionIsNotPrerelease = newVersion.prerelease.length === 0;
+	const prereleaseComponents = prerelease(env.version);
+	const newVersionIsNotPrerelease = prereleaseComponents.length === 0;
 
 	await exec('occ', '--name', env.name, '0.0.0');
 
@@ -60,8 +60,8 @@ export async function command() {
 	}
 
 	const stableVersions = versions.filter(version => {
-		const v = coerce(version);
-		return v.prerelease.length === 0;
+		const prereleaseComponents = prerelease(version);
+		return prereleaseComponents.length === 0;
 	});
 
 	const newVersionIsLargestVersion = stableVersions.every(version => {
