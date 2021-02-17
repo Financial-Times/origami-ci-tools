@@ -39,7 +39,6 @@
 		"tar": "^6.0.1"
 	},
 	"_origamiGlobalDependencies": {
-		"@financial-times/origami-bundle-size-cli": "^1.0.0",
 		"origami-build-tools": "11.0.0-beta.8"
 	}
 }
