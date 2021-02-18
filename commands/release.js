@@ -64,7 +64,7 @@ export async function command() {
 	});
 
 	const newVersionIsLargestVersion = stableVersions.every(version => {
-		return gt(newVersion, version);
+		return gt(prereleaseComponents, version);
 	});
 
 	await exec('npm', 'version', env.version, '--no-git-tag-version', '--force');
